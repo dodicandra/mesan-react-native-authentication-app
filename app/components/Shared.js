@@ -29,6 +29,26 @@ ErrorText.defaultProps = {
     error: ""
 };
 
+
+//ERROR COMPONENT
+export const Error = ({error, onRetry}) => {
+    return (
+        <View style={{flex:1, justifyContent:"center", alignItems:"center"}}>
+            <Text style={{fontSize: 16}}>
+                {`${error.message}`}
+            </Text>
+            <Text style={{color: "blue", fontSize: 16, padding: 8}} onPress={onRetry}>Tap to retry</Text>
+        </View>
+    )
+};
+
+Error.defaultProps = {
+    error: "",
+    onRetry:null
+};
+
+
+
 const styles = StyleSheet.create({
     header: {
         height: 50,

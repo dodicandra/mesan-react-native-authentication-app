@@ -18,7 +18,7 @@ function EventProvider(props) {
 
     const value = useMemo(() => {
         return {state, addEvents, addEventsWithPaging, createEvent, updateEvent, deleteEvent};
-    }, [inventoryState]);
+    }, [state]);
 
     return (
         <EventContext.Provider value={value}>

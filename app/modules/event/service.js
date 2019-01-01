@@ -18,6 +18,7 @@ export async function getEvents(){
 export async function getEventsWithPaging(page=1){
     try{
         const url = `${EVENT}?page=${page}`;
+        console.log(url)
         let res = await axios.get(url);
 
         return res.data;

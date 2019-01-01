@@ -1,7 +1,7 @@
 import React from 'react';
 import {createStackNavigator} from 'react-navigation-stack';
 
-import {EventProvider} from "./provider";
+import EventProvider from "./provider";
 
 //IMPORT SCENES
 import EventListScreen from "./scenes/EventList";

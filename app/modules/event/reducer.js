@@ -4,7 +4,7 @@ export const ADD_EVENT = 'ADD_EVENT';
 export const UPDATE_EVENT = 'UPDATE_EVENT';
 export const DELETE_EVENT = 'DELETE_EVENT';
 
-export const initialState = { events: [], totalResults:null, currentPage:null, nextPage: null};
+export const initialState = { events: [], totalResults:null, page:null, nextPage: null};
 
 const eventReducer = (state = initialState, action) => {
     switch (action.type) {
@@ -15,17 +15,23 @@ const eventReducer = (state = initialState, action) => {
 
         case EVENTS_AVAILABLE_PAGING: {
             let {result} = action.data;
-            const { events, totalResults, currentPage, nextPage } = result;
+            let { events, totalResults, page, nextPage } = result;
 
-            if (currentPage > 1) {
+            events = events.map(item => {
+                item.title = item._id;
+                delete item._id;
+                return item;
+            });
+
+            if (page > 1) {
                 //clone the current state
                 let [...clone] = state.events;
 
                 clone = [...clone, ...events];
 
-                return {...state, events: clone, totalResults, currentPage, nextPage};
+                return {...state, events: clone, totalResults, page, nextPage};
             } else {
-                return {...state, events, totalResults, currentPage, nextPage};
+                return {...state, events, totalResults, page, nextPage};
             }
         }
 
