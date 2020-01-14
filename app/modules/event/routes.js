@@ -19,7 +19,7 @@ const EventsStack = createStackNavigator(
     {
         initialRouteName: 'EventList',
         mode: 'modal',
-        defaultNavigationOptions: () => ({headerStyle, headerTitleStyle})
+        defaultNavigationOptions: () => ({headerStyle:{...headerStyle, backgroundColor:"#F46B4C"}, headerTitleStyle:{...headerTitleStyle, color:"#FFF"}})
     }
 );
 
